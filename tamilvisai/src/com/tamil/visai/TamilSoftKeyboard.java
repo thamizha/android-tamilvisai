@@ -1,5 +1,4 @@
-/*
- */
+
 
 package com.tamil.visai;
 
@@ -21,13 +20,6 @@ import android.view.inputmethod.ExtractedText;
 import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputConnection;
 
-/**
- * Example of writing an input method for a soft keyboard.  This code is
- * focused on simplicity over completeness, so it should in no way be considered
- * to be a complete soft keyboard implementation.  Its purpose is to provide
- * a basic example for how you would get started writing an input method, to
- * be fleshed out as appropriate.
- */
 public class TamilSoftKeyboard extends InputMethodService 
         implements KeyboardView.OnKeyboardActionListener {
     static final boolean DEBUG = false;
@@ -119,7 +111,7 @@ public class TamilSoftKeyboard extends InputMethodService
         mCandidateView = new TamilCandidateView(this);
         mCandidateView.setService(this);
         setCandidatesViewShown(true);
-        //mCandidateView.update("");
+        mCandidateView.update("");
         return mCandidateView;
     }
 
@@ -324,7 +316,7 @@ public class TamilSoftKeyboard extends InputMethodService
         if (c == 0 || ic == null) {
             return false;
         }
-        
+        c = 2950;
         boolean dead = false;
 
         if ((c & KeyCharacterMap.COMBINING_ACCENT) != 0) {
@@ -635,6 +627,7 @@ public class TamilSoftKeyboard extends InputMethodService
                 {
                 	primaryCode = Constants.SHIFTED_KEYS.get(primaryCode);
                 }
+                if(mCurKeyboard == mTamilKeyboard)
                 mInputView.setShifted(false);
             }
         }
@@ -694,13 +687,13 @@ public class TamilSoftKeyboard extends InputMethodService
         }
         else if(UYIR_MAI_LIST.contains(primaryCode)){
             //nj
-            if(primaryCode == 2972 && m2ndPrevChar == 2985){
+            if(primaryCode == 2972 && m2ndPrevChar == 2985 && mPrevChar == 3021){
     			handleBackspace();        			
     			handleBackspace();        			
             	primaryCode = 2974;
             }
             //ng
-            if(primaryCode == 2965 && m2ndPrevChar == 2985){
+            if(primaryCode == 2965 && m2ndPrevChar == 2985 && mPrevChar == 3021){
     			handleBackspace();        			
     			handleBackspace();        			
             	primaryCode = 2969;

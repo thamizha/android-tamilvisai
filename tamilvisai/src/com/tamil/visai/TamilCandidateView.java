@@ -72,25 +72,25 @@ public class TamilCandidateView extends TextView {
         
         setBackgroundColor(r.getColor(R.color.candidate_background));
         
-        mColorNormal = r.getColor(R.color.candidate_normal);
         Drawable drTop =  r.getDrawable(R.color.candidate_background);
         drTop.setBounds(new Rect(0,0,200,2));
-        
-        
+
+        mColorNormal = r.getColor(R.color.candidate_normal);
         mColorRecommended = r.getColor(R.color.candidate_recommended);
         mColorOther = r.getColor(R.color.candidate_other);
         mVerticalPadding = r.getDimensionPixelSize(R.dimen.candidate_vertical_padding);
+        
         setTextColor(Color.BLACK);
-        setCompoundDrawables(null,drTop,null,null);
-        setTextSize(17);
-        setMaxLines(2);
-        setHeight(80);
-        setWidth(200);
-        setVerticalFadingEdgeEnabled(true);
-        setWillNotDraw(false);
-        setHorizontalScrollBarEnabled(true);
-        setVerticalScrollBarEnabled(true);
         setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/mylai.ttf")); 
+
+        //setTextSize(17);
+      //  setMaxLines(2);
+        setHeight(120);
+        setWidth(200);
+        setHorizontalFadingEdgeEnabled(true);
+        setWillNotDraw(false);
+        setHorizontalScrollBarEnabled(false);
+        setVerticalScrollBarEnabled(false);
         setMovementMethod(new ScrollingMovementMethod());
     }
     
