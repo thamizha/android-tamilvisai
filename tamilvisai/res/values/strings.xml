@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-/*
-**
-** Copyright 2008, The Android Open Source Project
-**
-** Licensed under the Apache License, Version 2.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-*/
--->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Title for Latin keyboard  -->
-    <string name="ime_name">Tamil Visai</string>
-        <string name="app_name">Tamil Visai</string>
+	<string name="ime_name">TamilVisai</string>
+    <string name="app_name">TamilVisai</string>
     
 
     <!-- Symbols that are commonly considered word separators in this language -->
@@ -30,4 +11,15 @@
     <string name="label_go_key">Go</string>
     <string name="label_next_key">Next</string>
     <string name="label_send_key">Send</string>
+    <string name="text_welcome">வணக்கம்! இது ஆண்ட்ராய்டு இயங்குதளத்திற்கான தமிழ் விசைப் பலகை.</string>
+    <string name="text_Header">தமிழ்விசை</string>
+    
+    <string name="thamizha_txt">தமிழா!</string>
+
+    <string name="thamizha_url">http://www.thamizha.com</string>
+    <string name="text_help_header">how to enable TamilVisai</string>
+    <string name="text_help_steps">
+    Android 2.1 and above : Goto Settings -&gt; Languages &amp; Keyboards and tick TamilVisai \nAndroid 1.6 : Goto Settings -&gt; Locale &amp; Text and tick TamilVisai\n\n
+	Long press in a text box and choose Input Method and then select TamilVisai.     
+    </string>
 </resources>

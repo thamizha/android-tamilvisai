@@ -1,14 +1,14 @@
-
-
 package com.tamil.visai;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import android.content.res.Configuration;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.opengl.Visibility;
 import android.text.method.MetaKeyKeyListener;
 import android.util.Log;
 import android.view.KeyCharacterMap;
@@ -19,6 +19,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.ExtractedText;
 import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputConnection;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 
 public class TamilSoftKeyboard extends InputMethodService 
         implements KeyboardView.OnKeyboardActionListener {
@@ -35,8 +37,11 @@ public class TamilSoftKeyboard extends InputMethodService
     static final boolean PROCESS_HARD_KEYS = true;
     static final List<Integer> UYIR_MAI_LIST = Arrays.asList(new Integer[]{2965, 2969, 2970, 2972, 2974, 2975, 2979, 2980, 2984, 2985,2986, 2990, 2991, 2992, 2993, 2994, 2995, 2996, 2997, 2999, 3000, 3001});
 
+    private boolean showingSoftKeyboard = true;
     private KeyboardView mInputView;
     private TamilCandidateView mCandidateView;
+    private ConfigButtonView configBtns;
+    
     private CompletionInfo[] mCompletions;
     
     private StringBuilder mComposing = new StringBuilder();
@@ -60,6 +65,9 @@ public class TamilSoftKeyboard extends InputMethodService
     private TamilKeyboard mCurKeyboard;
     
     private String mWordSeparators;
+    
+    private Boolean mAlt = false;
+    private Boolean mTamil = false;
     
     /**
      * Main initialization of the input method component.  Be sure to call
@@ -108,11 +116,19 @@ public class TamilSoftKeyboard extends InputMethodService
      * be generated, like {@link #onCreateInputView}.
      */
     @Override public View onCreateCandidatesView() {
-        mCandidateView = new TamilCandidateView(this);
+    	LinearLayout layout = new LinearLayout(this);
+    	layout.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+    	layout.setOrientation(LinearLayout.VERTICAL);
+      // CandidateView candidateView = new CandidateView(this);
+    	mCandidateView = new TamilCandidateView(this);
         mCandidateView.setService(this);
+
+        configBtns = new ConfigButtonView(this);
         setCandidatesViewShown(true);
         mCandidateView.update("");
-        return mCandidateView;
+    	layout.addView(mCandidateView);
+    	layout.addView(configBtns.getConfigView());
+        return layout;
     }
 
     /**
@@ -247,6 +263,10 @@ public class TamilSoftKeyboard extends InputMethodService
         // Apply the selected keyboard to the input view.
         mInputView.setKeyboard(mCurKeyboard);
         mInputView.closing();
+    	mInputView.setVisibility(View.VISIBLE);
+        if(getResources().getConfiguration().hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO){
+        	mInputView.setVisibility(View.GONE);
+        }
     }
     
     /**
@@ -316,7 +336,6 @@ public class TamilSoftKeyboard extends InputMethodService
         if (c == 0 || ic == null) {
             return false;
         }
-        c = 2950;
         boolean dead = false;
 
         if ((c & KeyCharacterMap.COMBINING_ACCENT) != 0) {
@@ -345,7 +364,12 @@ public class TamilSoftKeyboard extends InputMethodService
      * continue to the app.
      */
     @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch (keyCode) {
+    	if(mCandidateView == null){
+    		setCandidatesView(onCreateCandidatesView());
+    	}
+    	setCandidatesViewShown(true);
+    	mCandidateView.setVisibility(View.VISIBLE);
+    	switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
                 // The InputMethodService already takes care of the back
                 // key for us, to dismiss the input method if it is shown.
@@ -362,48 +386,104 @@ public class TamilSoftKeyboard extends InputMethodService
                 // Special handling of the delete key: if we currently are
                 // composing text for the user, we want to modify that instead
                 // of let the application to the delete itself.
-                if (mComposing.length() > 0) {
-                    onKey(Keyboard.KEYCODE_DELETE, null);
-                    return true;
-                }
-                break;
+            	 handleBackspace();
+
+            	 return true;
+              
+            	//                if (mComposing.length() > 0) {
+//                    onKey(Keyboard.KEYCODE_DELETE, null);
+//                    return true;
+//                }
+              //  break;
                 
             case KeyEvent.KEYCODE_ENTER:
                 // Let the underlying text editor always handle these.
                 return false;
-                
+            case KeyEvent.KEYCODE_SHIFT_LEFT:
+            case KeyEvent.KEYCODE_SHIFT_RIGHT:
+            	handleShift();
+            	return false;
+//            case KeyEvent.KEYCODE_A:
+//            case KeyEvent.KEYCODE_B:
+//            case KeyEvent.KEYCODE_C:
+//            case KeyEvent.KEYCODE_D:
+//            case KeyEvent.KEYCODE_E:
+//            case KeyEvent.KEYCODE_F:
+//            case KeyEvent.KEYCODE_G:
+//            case KeyEvent.KEYCODE_H:
+//            case KeyEvent.KEYCODE_I:
+//            case KeyEvent.KEYCODE_J:
+//            case KeyEvent.KEYCODE_K:
+//            case KeyEvent.KEYCODE_L:
+//            case KeyEvent.KEYCODE_M:
+//            case KeyEvent.KEYCODE_N:
+//            case KeyEvent.KEYCODE_O:
+//            case KeyEvent.KEYCODE_P:
+//            case KeyEvent.KEYCODE_Q:
+//            case KeyEvent.KEYCODE_R:
+//            case KeyEvent.KEYCODE_S:
+//            case KeyEvent.KEYCODE_T:
+//            case KeyEvent.KEYCODE_U:
+//            case KeyEvent.KEYCODE_V:
+//            case KeyEvent.KEYCODE_W:
+//            case KeyEvent.KEYCODE_X:            	
+//            case KeyEvent.KEYCODE_Y:
+//            case KeyEvent.KEYCODE_Z:
+            case KeyEvent.KEYCODE_ALT_LEFT:
+            case KeyEvent.KEYCODE_ALT_RIGHT:
+            	if(mTamil)
+            		return true;
+            	return false;
             default:
-                // For all other keys, if we want to do transformations on
-                // text being entered with a hard keyboard, we need to process
-                // it and do the appropriate action.
-                if (PROCESS_HARD_KEYS) {
-                    if (keyCode == KeyEvent.KEYCODE_SPACE
-                            && (event.getMetaState()&KeyEvent.META_ALT_ON) != 0) {
-                        // A silly example: in our input method, Alt+Space
-                        // is a shortcut for 'android' in lower case.
-                        InputConnection ic = getCurrentInputConnection();
-                        if (ic != null) {
-                            // First, tell the editor that it is no longer in the
-                            // shift state, since we are consuming this.
-                            ic.clearMetaKeyStates(KeyEvent.META_ALT_ON);
-                            keyDownUp(KeyEvent.KEYCODE_A);
-                            keyDownUp(KeyEvent.KEYCODE_N);
-                            keyDownUp(KeyEvent.KEYCODE_D);
-                            keyDownUp(KeyEvent.KEYCODE_R);
-                            keyDownUp(KeyEvent.KEYCODE_O);
-                            keyDownUp(KeyEvent.KEYCODE_I);
-                            keyDownUp(KeyEvent.KEYCODE_D);
-                            // And we consume this event.
-                            return true;
-                        }
-                    }
-                    if (mPredictionOn && translateKeyDown(keyCode, event)) {
-                        return true;
-                    }
-                }
+              if(mTamil && Constants.KEY_CODE_MAP.containsKey(keyCode)){
+            	  onKey(Constants.KEY_CODE_MAP.get(keyCode), null);
+            	  return true;
+              }
+//              keyDownUp(keyCode);
+//              updateCandidateText();
+              return false;
+//            default:
+//                // For all other keys, if we want to do transformations on
+//                // text being entered with a hard keyboard, we need to process
+//                // it and do the appropriate action.
+//                if (PROCESS_HARD_KEYS) {
+//                    //keyDownUp(2965);
+//                	if(KeyEvent.KEYCODE_ALT_LEFT == keyCode || KeyEvent.KEYCODE_ALT_RIGHT == keyCode){
+////                        handleCharacter(2970, null);
+//                		  return false;
+//                	}
+//                    handleCharacter(2965, null);
+//                 updateCandidateText();
+//                  return true;
+////                    if (keyCode == KeyEvent.KEYCODE_SPACE
+////                           /* && (event.getMetaState()&KeyEvent.META_ALT_ON) != 0*/) {
+////                        // A silly example: in our input method, Alt+Space
+////                        // is a shortcut for 'android' in lower case.
+////                        InputConnection ic = getCurrentInputConnection();
+////                        if (ic != null) {
+////                            // First, tell the editor that it is no longer in the
+////                            // shift state, since we are consuming this.
+////                            ic.clearMetaKeyStates(KeyEvent.META_ALT_ON);
+////                            keyDownUp(KeyEvent.KEYCODE_A);
+////                            keyDownUp(KeyEvent.KEYCODE_N);
+////                            keyDownUp(KeyEvent.KEYCODE_D);
+////                            keyDownUp(KeyEvent.KEYCODE_R);
+////                            keyDownUp(KeyEvent.KEYCODE_O);
+////                            keyDownUp(KeyEvent.KEYCODE_I);
+////                            keyDownUp(KeyEvent.KEYCODE_D);
+////                            updateCandidateText();
+////                            // And we consume this event.
+////                            return true;
+////                        }
+////                    }
+////                    if (mPredictionOn && translateKeyDown(keyCode, event)) {
+////                        return true;
+////                    }
+//                }
         }
-        
-        return super.onKeyDown(keyCode, event);
+        boolean returnVal = super.onKeyDown(keyCode, event);
+        updateCandidateText();
+        return returnVal;
     }
 
     /**
@@ -420,6 +500,7 @@ public class TamilSoftKeyboard extends InputMethodService
                 mMetaState = MetaKeyKeyListener.handleKeyUp(mMetaState,
                         keyCode, event);
             }
+            updateCandidateText();
         }
         
         return super.onKeyUp(keyCode, event);
@@ -515,6 +596,8 @@ public class TamilSoftKeyboard extends InputMethodService
             }else{
             	mInputView.setKeyboard(mTamilKeyboard);
             }
+            mTamil = !mTamil;
+            configBtns.toggleLanguage();
         } else if (primaryCode == Keyboard.KEYCODE_CANCEL) {
         	handleClose();
             return;
@@ -593,7 +676,7 @@ public class TamilSoftKeyboard extends InputMethodService
         } else {
             keyDownUp(KeyEvent.KEYCODE_DEL);
         }
-        updateShiftKeyState(getCurrentInputEditorInfo());
+       // updateShiftKeyState(getCurrentInputEditorInfo());
         updateCandidateText();
 
     }
@@ -627,8 +710,11 @@ public class TamilSoftKeyboard extends InputMethodService
                 {
                 	primaryCode = Constants.SHIFTED_KEYS.get(primaryCode);
                 }
-                if(mCurKeyboard == mTamilKeyboard)
-                mInputView.setShifted(false);
+                Keyboard currentKeyboard = mInputView.getKeyboard();
+
+                if(currentKeyboard == mTamilKeyboard){
+                	mInputView.setShifted(false);
+                }
             }
         }
         
@@ -661,7 +747,7 @@ public class TamilSoftKeyboard extends InputMethodService
         		handleBackspace();
         		primaryCode = Constants.KURIL_SYMBOLS_MAP.get(primaryCode);        		
         	}
-        	else if(Constants.KURIL_SYMBOLS.contains(mPrevChar)){
+        	else if(Constants.KURIL_SYMBOLS.contains(mPrevChar) && mPrevChar == Constants.KURIL_SYMBOLS_MAP.get(primaryCode)){
         		handleBackspace();
         		primaryCode = Constants.NEDIL_SYMBOLS_MAP.get(primaryCode);        		        		
         	}
@@ -699,13 +785,13 @@ public class TamilSoftKeyboard extends InputMethodService
             	primaryCode = 2969;
             }
             //th
-            if(primaryCode == 3001 && m2ndPrevChar == 2975){
+            if(primaryCode == 3001 && m2ndPrevChar == 2975 && mPrevChar == 3021){
     			handleBackspace();        			
     			handleBackspace();        			
             	primaryCode = 2980;
             }
             //sh
-            if(primaryCode == 3001 && m2ndPrevChar == 2970){
+            if(primaryCode == 3001 && m2ndPrevChar == 2970 && mPrevChar == 3021){
     			handleBackspace();        			
     			handleBackspace();        			
             	primaryCode = 2999;
@@ -792,7 +878,35 @@ public class TamilSoftKeyboard extends InputMethodService
     public void pickDefaultCandidate() {
         pickSuggestionManually(0);
     }
+    public void toggleTamilKeyBoard(){
+    	mTamil = ! mTamil;
+    	if(mTamil){
+    		mInputView.setKeyboard(mTamilKeyboard);
+    	}else{
+    		mInputView.setKeyboard(mQwertyKeyboard);
+    	}
+    }
+    public void showSoftKeyboardView(){
+    	showingSoftKeyboard = true;;
+		mInputView.setVisibility(View.VISIBLE);
+    	
+    }
+    public void hideSoftKeyboardView(){
+    	showingSoftKeyboard = false;
+    		mInputView.setVisibility(View.GONE);
+    	
+    }
+
     
+    public void toggleSoftKeyboardView(){
+    	showingSoftKeyboard = ! showingSoftKeyboard;
+    	if(showingSoftKeyboard){
+    		mInputView.setVisibility(View.VISIBLE);
+    	}else{
+    		mInputView.setVisibility(View.GONE);
+    	}
+    	
+    }
     public void pickSuggestionManually(int index) {
         if (mCompletionOn && mCompletions != null && index >= 0
                 && index < mCompletions.length) {

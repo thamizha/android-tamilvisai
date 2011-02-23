@@ -22,6 +22,8 @@
     <color name="candidate_recommended">#FFE35900</color>
     <color name="candidate_other">#ff808080</color>
     <color name="candidate_background">#bbbbffbb</color>
+    <color name="header_background">#2c2c2c</color>
+    <color name="header_foreground">#FFFFFF</color>
     
     <drawable name="red_drawable">@color/candidate_background</drawable> 
 </resources>
