@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:orientation="vertical">
+	<LinearLayout android:id="@+id/header" android:background="@color/header_background" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:orientation="horizontal" android:paddingLeft="0px">
+	<ImageView android:layout_gravity="center_horizontal" android:id="@+id/ImageView02" android:src="@drawable/tamilvisai_logo"
+	 android:layout_width="wrap_content"
+	 android:layout_height="wrap_content"
+	  android:paddingBottom = "5px"
+	   android:paddingTop = "15px"
+	 ></ImageView>
+	 <TextView android:id="@+id/App_header" android:layout_gravity="center_horizontal" android:textColor="@color/header_foreground" android:paddingTop = "35px" android:text="txt" android:textSize="30px" android:layout_height="wrap_content" android:textStyle="bold" android:layout_width="fill_parent"></TextView>
+	</LinearLayout>	 
+	<TextView android:id="@+id/Welcome_text"  android:paddingTop="25px" android:paddingBottom = "15px" android:text="txt" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+	<LinearLayout android:id="@+id/LinearLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+	android:orientation="vertical" android:background="@color/candidate_normal">
+		<TextView android:id="@+id/Help_header"  android:paddingTop="15px" android:paddingBottom = "15px" android:layout_height="wrap_content" android:text="txt" android:layout_width="wrap_content"></TextView>
+		<TextView android:id="@+id/Help_steps" android:paddingBottom="15px" android:layout_height="wrap_content" android:text="txt" android:layout_width="wrap_content"></TextView>
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/Footer" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		android:orientation="vertical" android:background="@color/header_background" android:paddingLeft="0px">
+		<TextView android:paddingTop="10px" android:paddingLeft="0px" android:id="@+id/Footer_txt" android:textStyle="bold" android:textSize="25px" android:layout_height="wrap_content" android:text="@string/thamizha_txt" android:layout_width="wrap_content"></TextView>
+		<TextView  android:paddingLeft="0px" android:paddingBottom="10px" android:id="@+id/Footer_url" android:textStyle="bold" android:textSize="25px" android:layout_height="wrap_content" android:text="@string/thamizha_url" android:layout_width="wrap_content"></TextView>
+	</LinearLayout>
+
+</LinearLayout>
