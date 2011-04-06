@@ -15,12 +15,15 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.text.Selection;
+import android.text.Spannable;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.TextView;
 
-public class TamilCandidateView extends TextView {
+public class TamilPreviewView extends TextView {
 
     private static final int OUT_OF_BOUNDS = -1;
 
@@ -59,7 +62,7 @@ public class TamilCandidateView extends TextView {
      * @param context
      * @param attrs
      */
-    public TamilCandidateView(Context context) {
+    public TamilPreviewView(Context context) {
         super(context);
         mSelectionHighlight = context.getResources().getDrawable(
                 android.R.drawable.list_selector_background);
@@ -84,12 +87,11 @@ public class TamilCandidateView extends TextView {
         setTextColor(Color.BLACK);
         setTextSize(16);
         setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/mylai.ttf"), Typeface.BOLD); 
-
-        AbsListView.LayoutParams lp = new AbsListView.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, 70);
+        AbsListView.LayoutParams lp = new AbsListView.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, 80);
         setLayoutParams(lp);
         //setTextSize(17);
       //  setMaxLines(2);
-        setHeight(70);
+        setHeight(80);
 //        setWidth(200);
         setHorizontalFadingEdgeEnabled(true);
         setWillNotDraw(false);
@@ -111,9 +113,24 @@ public class TamilCandidateView extends TextView {
             boolean typedWordValid) {
     }
 
-    public void update(String txt){
+    public void update(String txt, int cursorPos){
     	txt = UnicodeUtil.unicode2tsc(txt);
     	setText(txt);
+    	Spannable text = (Spannable)getText();
+    	if(cursorPos >2){
+    		cursorPos = cursorPos - 2;
+    		if(cursorPos > text.length()){
+    			cursorPos = text.length();
+    		}
+    	}
+    	try{
+    	Selection.setSelection(text, cursorPos); 
+    	}catch (Exception e) {
+    		Log.e("t", "err", e);
+        	Log.e("curpos", "cursorPOS:::::::::::::::::"+cursorPos);
+        	Log.e("curpos", "txtLength:::::::::::::::::"+text.length());
+
+		}
 //    	if(getLineCount()>2){
 //    		scrollTo(0, (getLineCount()-2)* getLineHeight());
 //    	}
