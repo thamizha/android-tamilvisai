@@ -8,42 +8,42 @@
     >
 
     <Row>
-        <Key android:codes="2947" android:keyLabel="q" android:keyEdgeFlags="left"/>
-        <Key android:codes="2984" android:keyLabel="w"/>
-        <Key android:codes="2958" android:keyLabel="e"/>
-        <Key android:codes="2992" android:keyLabel="r"/>
-        <Key android:codes="2975" android:keyLabel="t"/>
-        <Key android:codes="2991" android:keyLabel="y"/>
-        <Key android:codes="2953" android:keyLabel="u"/>
-        <Key android:codes="2951" android:keyLabel="i"/>
-        <Key android:codes="2962" android:keyLabel="o"/>
-        <Key android:codes="2986" android:keyLabel="p" android:keyEdgeFlags="right"/>
+        <Key android:codes="2947" android:keyIcon="@drawable/tamil_q" android:keyEdgeFlags="left"/>
+        <Key android:codes="2984" android:keyIcon="@drawable/tamil_w"/>
+        <Key android:codes="2958" android:keyIcon="@drawable/tamil_e"/>
+        <Key android:codes="2992" android:keyIcon="@drawable/tamil_r"/>
+        <Key android:codes="2975" android:keyIcon="@drawable/tamil_t"/>
+        <Key android:codes="2991" android:keyIcon="@drawable/tamil_y"/>
+        <Key android:codes="2953" android:keyIcon="@drawable/tamil_u"/>
+        <Key android:codes="2951" android:keyIcon="@drawable/tamil_i"/>
+        <Key android:codes="2962" android:keyIcon="@drawable/tamil_o"/>
+        <Key android:codes="2986" android:keyIcon="@drawable/tamil_p" android:keyEdgeFlags="right"/>
     </Row>
 
     <Row>
-        <Key android:codes="2949" android:keyLabel="a" android:horizontalGap="5%p" 
+        <Key android:codes="2949" android:keyIcon="@drawable/tamil_a" android:horizontalGap="5%p" 
                 android:keyEdgeFlags="left"/>
-        <Key android:codes="2970" android:keyLabel="s"/>
-        <Key android:codes="2975" android:keyLabel="d"/>
-        <Key android:codes="102" android:keyLabel="f"/>
-        <Key android:codes="2965" android:keyLabel="g"/>
-        <Key android:codes="3001" android:keyLabel="h"/>
-        <Key android:codes="2972" android:keyLabel="j"/>
-        <Key android:codes="2965" android:keyLabel="k"/>
-        <Key android:codes="2994" android:keyLabel="l" android:keyEdgeFlags="right"/>
+        <Key android:codes="2970" android:keyIcon="@drawable/tamil_c"/>
+        <Key android:codes="2975" android:keyIcon="@drawable/tamil_d"/>
+        <Key android:codes="102" android:keyIcon="@drawable/tamil_f"/>
+        <Key android:codes="2965" android:keyIcon="@drawable/tamil_g"/>
+        <Key android:codes="3001" android:keyIcon="@drawable/tamil_h"/>
+        <Key android:codes="2972" android:keyIcon="@drawable/tamil_j"/>
+        <Key android:codes="2965" android:keyIcon="@drawable/tamil_k"/>
+        <Key android:codes="2994" android:keyIcon="@drawable/tamil_l" android:keyEdgeFlags="right"/>
     </Row>
 
     <Row>
         <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" 
                 android:keyWidth="15%p" android:isModifier="true"
                 android:isSticky="true" android:keyEdgeFlags="left"/>
-        <Key android:codes="2996" android:keyLabel="z"/>
-        <Key android:codes="120" android:keyLabel="x"/>
-        <Key android:codes="2970" android:keyLabel="c"/>
-        <Key android:codes="2997" android:keyLabel="v"/>
-        <Key android:codes="2986" android:keyLabel="b"/>
-        <Key android:codes="2985" android:keyLabel="n"/>
-        <Key android:codes="2990" android:keyLabel="m"/>
+        <Key android:codes="2996" android:keyIcon="@drawable/tamil_z"/>
+        <Key android:codes="120" android:keyIcon="@drawable/tamil_x"/>
+        <Key android:codes="2970" android:keyIcon="@drawable/tamil_c"/>
+        <Key android:codes="2997" android:keyIcon="@drawable/tamil_v"/>
+        <Key android:codes="2986" android:keyIcon="@drawable/tamil_b"/>
+        <Key android:codes="2985" android:keyIcon="@drawable/tamil_n"/>
+        <Key android:codes="2990" android:keyIcon="@drawable/tamil_m"/>
         <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" 
                 android:keyWidth="15%p" android:keyEdgeFlags="right"
                 android:isRepeatable="true"/>
