@@ -22,4 +22,9 @@
     <dimen name="key_height">50dip</dimen>
     <dimen name="candidate_font_height">16sp</dimen>
     <dimen name="candidate_vertical_padding">6sp</dimen>
+    <dimen name="arrow_exp_hight">86dp</dimen>
+    <dimen name="preview_exp_hight">120dp</dimen>
+    <dimen name="arrow_normal_hight">46dp</dimen>
+    <dimen name="preview_normal_hight">80dp</dimen>
+    
 </resources>

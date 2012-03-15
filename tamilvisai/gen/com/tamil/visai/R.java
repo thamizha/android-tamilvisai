@@ -15,69 +15,163 @@ public final class R {
         public static final int candidate_normal=0x7f050000;
         public static final int candidate_other=0x7f050002;
         public static final int candidate_recommended=0x7f050001;
+        public static final int header_background=0x7f050004;
+        public static final int header_foreground=0x7f050005;
+        public static final int preview_background=0x7f050006;
     }
     public static final class dimen {
+        public static final int arrow_exp_hight=0x7f060003;
+        public static final int arrow_normal_hight=0x7f060005;
         public static final int candidate_font_height=0x7f060001;
         public static final int candidate_vertical_padding=0x7f060002;
         public static final int key_height=0x7f060000;
+        public static final int preview_exp_hight=0x7f060004;
+        public static final int preview_normal_hight=0x7f060006;
     }
     public static final class drawable {
-        public static final int a=0x7f020000;
-        public static final int aa=0x7f020001;
-        public static final int icon=0x7f020002;
-        public static final int k1=0x7f020003;
-        public static final int k1_1=0x7f020004;
-        public static final int k1_2=0x7f020005;
-        public static final int k1_3=0x7f020006;
-        public static final int k1_4=0x7f020007;
-        public static final int k1_5=0x7f020008;
-        public static final int k1_6=0x7f020009;
-        public static final int k1_7=0x7f02000a;
-        public static final int k1_8=0x7f02000b;
-        public static final int k2=0x7f02000c;
-        public static final int k2_1=0x7f02000d;
-        public static final int k2_2=0x7f02000e;
-        public static final int k2_3=0x7f02000f;
-        public static final int k2_4=0x7f020010;
-        public static final int k2_5=0x7f020011;
-        public static final int k2_6=0x7f020012;
-        public static final int k2_7=0x7f020013;
-        public static final int k2_8=0x7f020014;
-        public static final int k3=0x7f020015;
-        public static final int k3_1=0x7f020016;
-        public static final int k3_2=0x7f020017;
-        public static final int k3_3=0x7f020018;
-        public static final int k3_4=0x7f020019;
-        public static final int k3_5=0x7f02001a;
-        public static final int k3_6=0x7f02001b;
-        public static final int k3_7=0x7f02001c;
-        public static final int k3_8=0x7f02001d;
-        public static final int key_back=0x7f02001e;
-        public static final int red_drawable=0x7f020025;
-        public static final int sym_keyboard_delete=0x7f02001f;
-        public static final int sym_keyboard_done=0x7f020020;
-        public static final int sym_keyboard_return=0x7f020021;
-        public static final int sym_keyboard_search=0x7f020022;
-        public static final int sym_keyboard_shift=0x7f020023;
-        public static final int sym_keyboard_space=0x7f020024;
+        public static final int arrow_down=0x7f020000;
+        public static final int arrow_left=0x7f020001;
+        public static final int arrow_right=0x7f020002;
+        public static final int arrow_up=0x7f020003;
+        public static final int icon=0x7f020004;
+        public static final int icon_arrow_first=0x7f020005;
+        public static final int icon_arrow_last=0x7f020006;
+        public static final int icon_left_arrow=0x7f020007;
+        public static final int icon_right_arrow=0x7f020008;
+        public static final int icons_anjal=0x7f020009;
+        public static final int icons_en=0x7f02000a;
+        public static final int key_back=0x7f02000b;
+        public static final int key_background_highlighted_img=0x7f02000c;
+        public static final int key_background_img=0x7f02000d;
+        public static final int red_drawable=0x7f020054;
+        public static final int sym_keyboard_delete=0x7f02000e;
+        public static final int sym_keyboard_done=0x7f02000f;
+        public static final int sym_keyboard_return=0x7f020010;
+        public static final int sym_keyboard_search=0x7f020011;
+        public static final int sym_keyboard_shift=0x7f020012;
+        public static final int sym_keyboard_space=0x7f020013;
+        public static final int tamil99_a=0x7f020014;
+        public static final int tamil99_aa=0x7f020015;
+        public static final int tamil99_ai=0x7f020016;
+        public static final int tamil99_ak=0x7f020017;
+        public static final int tamil99_cha=0x7f020018;
+        public static final int tamil99_da=0x7f020019;
+        public static final int tamil99_e=0x7f02001a;
+        public static final int tamil99_ee=0x7f02001b;
+        public static final int tamil99_ha=0x7f02001c;
+        public static final int tamil99_i=0x7f02001d;
+        public static final int tamil99_ii=0x7f02001e;
+        public static final int tamil99_ja=0x7f02001f;
+        public static final int tamil99_ka=0x7f020020;
+        public static final int tamil99_ksha=0x7f020021;
+        public static final int tamil99_la1=0x7f020022;
+        public static final int tamil99_la2=0x7f020023;
+        public static final int tamil99_ma=0x7f020024;
+        public static final int tamil99_mei=0x7f020025;
+        public static final int tamil99_na1=0x7f020026;
+        public static final int tamil99_na2=0x7f020027;
+        public static final int tamil99_nga=0x7f020028;
+        public static final int tamil99_nja=0x7f020029;
+        public static final int tamil99_o=0x7f02002a;
+        public static final int tamil99_oo=0x7f02002b;
+        public static final int tamil99_ow=0x7f02002c;
+        public static final int tamil99_pa=0x7f02002d;
+        public static final int tamil99_ra1=0x7f02002e;
+        public static final int tamil99_ra2=0x7f02002f;
+        public static final int tamil99_sha1=0x7f020030;
+        public static final int tamil99_sha2=0x7f020031;
+        public static final int tamil99_sri=0x7f020032;
+        public static final int tamil99_tha=0x7f020033;
+        public static final int tamil99_u=0x7f020034;
+        public static final int tamil99_uu=0x7f020035;
+        public static final int tamil99_va=0x7f020036;
+        public static final int tamil99_wa=0x7f020037;
+        public static final int tamil99_ya=0x7f020038;
+        public static final int tamil99_za=0x7f020039;
+        public static final int tamil_a=0x7f02003a;
+        public static final int tamil_b=0x7f02003b;
+        public static final int tamil_c=0x7f02003c;
+        public static final int tamil_d=0x7f02003d;
+        public static final int tamil_e=0x7f02003e;
+        public static final int tamil_f=0x7f02003f;
+        public static final int tamil_g=0x7f020040;
+        public static final int tamil_h=0x7f020041;
+        public static final int tamil_i=0x7f020042;
+        public static final int tamil_j=0x7f020043;
+        public static final int tamil_k=0x7f020044;
+        public static final int tamil_l=0x7f020045;
+        public static final int tamil_m=0x7f020046;
+        public static final int tamil_n=0x7f020047;
+        public static final int tamil_o=0x7f020048;
+        public static final int tamil_p=0x7f020049;
+        public static final int tamil_q=0x7f02004a;
+        public static final int tamil_r=0x7f02004b;
+        public static final int tamil_t=0x7f02004c;
+        public static final int tamil_u=0x7f02004d;
+        public static final int tamil_v=0x7f02004e;
+        public static final int tamil_w=0x7f02004f;
+        public static final int tamil_x=0x7f020050;
+        public static final int tamil_y=0x7f020051;
+        public static final int tamil_z=0x7f020052;
+        public static final int tamilvisai_logo=0x7f020053;
     }
     public static final class id {
+        public static final int App_header=0x7f080010;
+        public static final int Footer=0x7f080012;
+        public static final int Footer_txt=0x7f080013;
+        public static final int Footer_url=0x7f080014;
+        public static final int Help_header=0x7f080016;
+        public static final int Help_steps=0x7f080017;
+        public static final int ImageView02=0x7f08000f;
+        public static final int Welcome_text=0x7f080011;
+        public static final int header=0x7f08000e;
+        public static final int helpWrapper=0x7f080015;
         public static final int keyboard=0x7f080000;
+        public static final int layout_menu=0x7f080001;
+        public static final int leftArrow=0x7f080008;
+        public static final int leftArrowContainer=0x7f080007;
+        public static final int logoContainer=0x7f080005;
+        public static final int maxMinContainer=0x7f080009;
+        public static final int max_min=0x7f08000a;
+        public static final int moveToStartArrow=0x7f080006;
+        public static final int previewFrame=0x7f080003;
+        public static final int previewText=0x7f080004;
+        public static final int previewview=0x7f080002;
+        public static final int rightArrow=0x7f08000c;
+        public static final int rightArrowContainer=0x7f08000b;
+        public static final int scroll=0x7f08000d;
     }
     public static final class layout {
         public static final int input=0x7f030000;
+        public static final int layout_menu=0x7f030001;
+        public static final int previewview=0x7f030002;
+        public static final int tamilvisai=0x7f030003;
+        public static final int tamilvisai_help_home=0x7f030004;
+        public static final int tamilvisai_tab=0x7f030005;
     }
     public static final class string {
+        public static final int T99=0x7f07000a;
         public static final int app_name=0x7f070001;
-        /**  Title for Latin keyboard  
-         */
+        public static final int eng=0x7f07000d;
         public static final int ime_name=0x7f070000;
+        public static final int input_method=0x7f07000e;
+        public static final int keyboard_layout_menu_header=0x7f070009;
         /**  Labels on soft keys 
+ Labels on soft keys 
          */
         public static final int label_go_key=0x7f070003;
         public static final int label_next_key=0x7f070004;
         public static final int label_send_key=0x7f070005;
+        public static final int phonetic=0x7f07000b;
+        public static final int phonetic_eng=0x7f07000c;
+        public static final int text_Header=0x7f070007;
+        public static final int text_help_header=0x7f070010;
+        public static final int text_help_steps=0x7f070011;
+        public static final int text_welcome=0x7f070006;
+        public static final int thamizha_txt=0x7f070008;
+        public static final int thamizha_url=0x7f07000f;
         /**  Symbols that are commonly considered word separators in this language 
+ Symbols that are commonly considered word separators in this language 
          */
         public static final int word_separators=0x7f070002;
     }
@@ -87,5 +181,8 @@ public final class R {
         public static final int symbols=0x7f040002;
         public static final int symbols_shift=0x7f040003;
         public static final int tamil=0x7f040004;
+        public static final int tamil99=0x7f040005;
+        public static final int tamil99_shift=0x7f040006;
+        public static final int tamil_phonetic=0x7f040007;
     }
 }

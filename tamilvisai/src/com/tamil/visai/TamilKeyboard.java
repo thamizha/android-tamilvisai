@@ -1,22 +1,38 @@
  package com.tamil.visai;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.inputmethodservice.Keyboard;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 
 public class TamilKeyboard extends Keyboard {
+	
+	public static final int KEYBOARD_TAMIL99 = 0;
+	public static final int KEYBOARD_PHONETIC = 1;
+	public static final int KEYBOARD_PHONETIC_ENGLISH = 2;
+	public static final int KEYBOARD_ENGLISH = 3;
+	
 
+	public static int CURRENT_LAYOUT = KEYBOARD_TAMIL99;
+	
+	private Context context;
     private Key mEnterKey;
     
     public TamilKeyboard(Context context, int xmlLayoutResId) {
         super(context, xmlLayoutResId);
+        this.context = context;
     }
 
     public TamilKeyboard(Context context, int layoutTemplateResId, 
             CharSequence characters, int columns, int horizontalPadding) {
         super(context, layoutTemplateResId, characters, columns, horizontalPadding);
+        this.context = context;
     }
 
     @Override
@@ -26,8 +42,28 @@ public class TamilKeyboard extends Keyboard {
         if (key.codes[0] == 10) {
             mEnterKey = key;
         }
+        
         return key;
     }
+    
+    public boolean isTablet() {
+        try {
+            // Compute screen size
+            Display d = ((WindowManager)context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+
+            DisplayMetrics dm = new DisplayMetrics();
+            d.getMetrics(dm);
+            float screenWidth  = dm.widthPixels / dm.xdpi;
+            float screenHeight = dm.heightPixels / dm.ydpi;
+            double size = Math.sqrt(Math.pow(screenWidth, 2) +
+                                    Math.pow(screenHeight, 2));
+            return size >= 6;
+        } catch(Exception t) {
+        	Log.e("t","error in tablet", t);
+            return false;
+        }
+
+    } 
     
     /**
      * This looks at the ime options given by the current editor, to set the

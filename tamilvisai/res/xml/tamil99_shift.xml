@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="8.32%p"
+    android:horizontalGap="0px"
+    android:verticalGap="0px"
+    android:keyHeight="@dimen/key_height"
+    >
+
+    <Row>
+        <Key android:codes="3000" android:keyIcon="@drawable/tamil99_sha1" android:keyEdgeFlags="left"/>
+        <Key android:codes="2999" android:keyIcon="@drawable/tamil99_sha2"/>
+        <Key android:codes="2958" android:keyIcon="@drawable/tamil99_ja"/>
+        <Key android:codes="3001" android:keyIcon="@drawable/tamil99_ha"/>
+        <Key android:codes="2959" android:keyIcon="@drawable/tamil99_ee"/>
+        <Key android:codes="2995" android:keyIcon="@drawable/tamil99_la2"/>
+        <Key android:codes="2993" android:keyIcon="@drawable/tamil99_ra2"/>
+        <Key android:codes="2962" android:keyIcon="@drawable/tamil99_na1"/>
+        <Key android:codes="2975" android:keyIcon="@drawable/tamil99_da"/>
+        <Key android:codes="2979" android:keyIcon="@drawable/tamil99_na2"/>
+        <Key android:codes="2970" android:keyIcon="@drawable/tamil99_cha"/>
+        <Key android:codes="2974" android:keyIcon="@drawable/tamil99_nja" android:keyEdgeFlags="right"/>
+    </Row>
+
+    <Row>
+        <Key android:codes="2949" android:keyIcon="@drawable/tamil99_a" android:horizontalGap="5%p" 
+                android:keyEdgeFlags="left"/>
+        <Key android:codes="2951" android:keyIcon="@drawable/tamil99_i"/>
+        <Key android:codes="2953" android:keyIcon="@drawable/tamil99_u"/>
+        <Key android:codes="2947" android:keyIcon="@drawable/tamil99_ak"/>
+        <Key android:codes="2958" android:keyIcon="@drawable/tamil99_e"/>
+        <Key android:codes="2965" android:keyIcon="@drawable/tamil99_ka"/>
+        <Key android:codes="2986" android:keyIcon="@drawable/tamil99_pa"/>
+        <Key android:codes="2990" android:keyIcon="@drawable/tamil99_ma"/>
+        <Key android:codes="2980" android:keyIcon="@drawable/tamil99_tha"/>
+        <Key android:codes="2984" android:keyIcon="@drawable/tamil99_wa"/>
+        <Key android:codes="2991" android:keyIcon="@drawable/tamil99_ya" android:keyEdgeFlags="right"/>
+    </Row>
+
+    <Row>
+        <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" 
+                android:keyWidth="17%p" android:isModifier="true"
+                android:isSticky="true" android:keyEdgeFlags="left"/>
+        <Key android:codes="2964" android:keyIcon="@drawable/tamil99_ow"/>
+        <Key android:codes="2963" android:keyIcon="@drawable/tamil99_oo"/>
+        <Key android:codes="2962" android:keyIcon="@drawable/tamil99_o"/>
+        <Key android:codes="2997" android:keyIcon="@drawable/tamil99_va"/>
+        <Key android:codes="2969" android:keyIcon="@drawable/tamil99_nja"/>
+        <Key android:codes="2994" android:keyIcon="@drawable/tamil99_la1"/>
+        <Key android:codes="2992" android:keyIcon="@drawable/tamil99_ra1"/>
+        <Key android:codes="2996" android:keyIcon="@drawable/tamil99_za"/>        
+        <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" 
+                android:keyWidth="17%p" android:keyEdgeFlags="right"
+                android:isRepeatable="true"/>
+    </Row>
+
+    <Row android:rowEdgeFlags="bottom">
+        <Key android:codes="-3" android:keyIcon="@drawable/sym_keyboard_done" 
+                android:keyWidth="15%p" android:keyEdgeFlags="left"/>
+        <Key android:codes="-8" android:keyLabel="ENG" 
+                android:keyWidth="15%p"/>
+                
+        <Key android:codes="-2" android:keyLabel="123" android:keyWidth="15%p"/>
+        <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" 
+                android:keyWidth="20%p" android:isRepeatable="true"/>
+        <Key android:codes="46,44" android:keyLabel=". ,"
+                android:keyWidth="15%p"/>
+        <Key android:codes="10" android:keyIcon="@drawable/sym_keyboard_return" 
+                android:keyWidth="20%p" android:keyEdgeFlags="right"/>
+    </Row>
+</Keyboard>

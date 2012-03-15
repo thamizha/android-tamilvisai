@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:id="@+id/previewview" >
+
+<FrameLayout
+    android:layout_width="fill_parent" android:id="@+id/previewFrame"
+    android:layout_height="wrap_content" android:background="@color/preview_background">
+
+        <TextView android:id="@+id/previewText" android:layout_width="fill_parent" android:layout_height="80dp"
+         android:text="" android:layout_marginLeft="24dp" android:layout_marginRight="24dp" android:layout_gravity="center"></TextView>
+    <LinearLayout android:id="@+id/logoContainer" android:layout_width="20dp" android:layout_height="26dp" android:layout_margin="2dp" android:layout_gravity="top|left" 
+    	android:background="@color/candidate_other">    
+    <ImageView android:id="@+id/moveToStartArrow" android:src="@drawable/tamilvisai_logo"  
+    	android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical"/>
+    </LinearLayout>	
+    <LinearLayout android:id="@+id/leftArrowContainer" android:layout_width="20dp" android:layout_height="46dp" android:layout_margin="2dp" android:layout_gravity="bottom|left" android:background="@color/candidate_other">    
+	<ImageView android:id="@+id/leftArrow" android:src="@drawable/arrow_left"  
+		android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical"/>
+	</LinearLayout>
+    <LinearLayout android:id="@+id/maxMinContainer" android:layout_width="20dp" android:layout_height="26dp" android:layout_margin="2dp" android:layout_gravity="top|right" 
+    	android:background="@color/candidate_other">    
+		<ImageView android:id="@+id/max_min" android:src="@drawable/arrow_up"  
+			android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical"/>
+    </LinearLayout>	
+    <LinearLayout android:id="@+id/rightArrowContainer" android:layout_width="20dp" android:layout_height="46dp" android:layout_margin="2dp" android:layout_gravity="bottom|right"
+     android:background="@color/candidate_other">    
+	<ImageView android:id="@+id/rightArrow" android:src="@drawable/arrow_right"  
+		android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center_vertical"/>
+	</LinearLayout>
+	
+	
+        
+</FrameLayout>   
+</LinearLayout>

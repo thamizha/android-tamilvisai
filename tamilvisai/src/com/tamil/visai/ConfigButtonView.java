@@ -8,24 +8,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
-public class ConfigButtonView{
+public class ConfigButtonView extends View{
 
 	Context context;
 	LinearLayout configView;
-	ImageView keyboardToggleImg;
+//	ImageView keyboardToggleImg;
 	ImageView leftArrow;
 	ImageView rightArrow;
 	ImageView moveToStartArrow;
 	ImageView moveToEndArrow;
-	
+	public TextView keyboardLayoutTxt;
 	public static final String BTN_CAPS_OFF = "a";
 	public static final String BTN_CAPS_ON = "A";
 
 	private boolean isTamilKeyboard = false;
 	
 	public ConfigButtonView(Context context) {
+		super(context);
+
 		try{
 		this.context = context;
 		configView = new LinearLayout(context);
@@ -40,52 +43,73 @@ public class ConfigButtonView{
 			// TODO: handle exception
 		}
 	}
-	public void toggleLanguage(){
-		try{
-//    	if(languageSelectionButton.getText() == BTN_TEXT_ENG)
-//    		languageSelectionButton.setText(BTN_TEXT_TAMIL);
-//    	else
-//    		languageSelectionButton.setText(BTN_TEXT_ENG);
-    	if(isTamilKeyboard){
-    		keyboardToggleImg.setImageResource(R.drawable.icons_anjal);
-    	}else{
-    		keyboardToggleImg.setImageResource(R.drawable.icons_en);            		
-    	}
-		isTamilKeyboard = !isTamilKeyboard;
-		}catch (Exception e) {
-			// TODO: handle exception
-		}		
-	}
+//	public void toggleLanguage(){
+//		try{
+////    	if(languageSelectionButton.getText() == BTN_TEXT_ENG)
+////    		languageSelectionButton.setText(BTN_TEXT_TAMIL);
+////    	else
+////    		languageSelectionButton.setText(BTN_TEXT_ENG);
+//    	if(isTamilKeyboard){
+//    		keyboardToggleImg.setImageResource(R.drawable.icons_anjal);
+//    	}else{
+//    		keyboardToggleImg.setImageResource(R.drawable.icons_en);            		
+//    	}
+//		isTamilKeyboard = !isTamilKeyboard;
+//		}catch (Exception e) {
+//			// TODO: handle exception
+//		}		
+//	}
 	public void initButtons(){
 		try{
-		keyboardToggleImg = new ImageView(context);
-		if(((TamilSoftKeyboard)context).isTamilKeyboard()){
-    		keyboardToggleImg.setImageResource(R.drawable.icons_en);
-    		isTamilKeyboard = true;
-		}
-		else{
-			keyboardToggleImg.setImageResource(R.drawable.icons_anjal);
-    		isTamilKeyboard = false;
-		}
-		keyboardToggleImg.setLayoutParams(new LayoutParams(50, 50));
-		configView.addView(keyboardToggleImg);
-		keyboardToggleImg.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	if(isTamilKeyboard){
-            		keyboardToggleImg.setImageResource(R.drawable.icons_anjal);
-            	}else{
-            		keyboardToggleImg.setImageResource(R.drawable.icons_en);            		
-            	}
-            	isTamilKeyboard = !isTamilKeyboard;
-            	((TamilSoftKeyboard)context).toggleTamilKeyBoard();
-            		
-                // Perform action on click
-            }
-        });
-		
+//		keyboardToggleImg = new ImageView(context);
+//		if(((TamilSoftKeyboard)context).isTamilKeyboard()){
+//    		keyboardToggleImg.setImageResource(R.drawable.icons_en);
+//    		isTamilKeyboard = true;
+//		}
+//		else{
+//			keyboardToggleImg.setImageResource(R.drawable.icons_anjal);
+//    		isTamilKeyboard = false;
+//		}
+//		keyboardToggleImg.setLayoutParams(new LayoutParams(50, 50));
+//		configView.addView(keyboardToggleImg);
+//		keyboardToggleImg.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//            	if(isTamilKeyboard){
+//            		keyboardToggleImg.setImageResource(R.drawable.icons_anjal);
+//            	}else{
+//            		keyboardToggleImg.setImageResource(R.drawable.icons_en);            		
+//            	}
+//            	isTamilKeyboard = !isTamilKeyboard;
+//            	((TamilSoftKeyboard)context).toggleTamilKeyBoard();
+//            		
+//                // Perform action on click
+//            }
+//        });
+			
+//			LinearLayout keyboardLayoutContainer = new LinearLayout(context);
+//			keyboardLayoutContainer.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));			
+//			
+//		LinearLayout keyboardSelection = new LinearLayout(context);
+//		keyboardSelection.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
+//		keyboardLayoutTxt = new TextView(context);
+//		keyboardLayoutTxt.setText("Tamil 99");
+//		
+//		keyboardLayoutTxt.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//            	((TamilSoftKeyboard)context).showKeyboardLayoutDialog();
+//            }
+//        });
+//		configView.addView(keyboardLayoutContainer);	
+//		keyboardSelection.addView(keyboardLayoutTxt);	
+//
+//		keyboardLayoutContainer.addView(keyboardSelection);	
+//		keyboardSelection.setBackgroundColor(Color.GRAY);
+//		keyboardSelection.setGravity(Gravity.LEFT|Gravity.BOTTOM);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
+		View view = findViewById(R.id.previewview);
+
 		LinearLayout arrowsViewContainer = new LinearLayout(context);
 		arrowsViewContainer.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, 50));
 		
@@ -93,7 +117,15 @@ public class ConfigButtonView{
 		arrowsView.setLayoutParams(new LayoutParams(160, 40));
 		
 		arrowsViewContainer.setGravity(Gravity.RIGHT|Gravity.BOTTOM);
-		
+		keyboardLayoutTxt = new TextView(context);
+		keyboardLayoutTxt.setText("Tamil 99");
+		keyboardLayoutTxt.setPadding(5, 0, 5, 0);
+		keyboardLayoutTxt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	((TamilSoftKeyboard)context).showKeyboardLayoutDialog();
+            }
+        });
+		arrowsView.addView(keyboardLayoutTxt);	
 		
 		moveToStartArrow = new ImageView(context);
 		moveToStartArrow.setImageResource(R.drawable.icon_arrow_first);

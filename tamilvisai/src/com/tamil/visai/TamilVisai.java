@@ -45,16 +45,5 @@ public class TamilVisai extends Activity {
         welcomeTxt.setTypeface(fontface,Typeface.BOLD);
         welcomeTxt.setTextColor(Color.WHITE);
         
-        TextView helpHdr =(TextView) findViewById(R.id.Help_header);
-        helpHdr.setText(R.string.text_help_header);
-        helpHdr.setTypeface(helpHdr.getTypeface(), Typeface.BOLD);
-        helpHdr.setTextColor(Color.BLACK);
-        TextView helpSteps =(TextView) findViewById(R.id.Help_steps);
-        helpSteps.setText(R.string.text_help_steps);
-        helpSteps.setTextColor(Color.BLACK);
-        
-        LinearLayout layout = (LinearLayout)findViewById(R.id.LinearLayout01);
-        layout.setBackgroundColor(Color.WHITE);
-        
     }
 }

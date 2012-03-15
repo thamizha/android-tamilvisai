@@ -126,10 +126,6 @@ public class TamilPreviewView extends TextView {
     	try{
     	Selection.setSelection(text, cursorPos); 
     	}catch (Exception e) {
-    		Log.e("t", "err", e);
-        	Log.e("curpos", "cursorPOS:::::::::::::::::"+cursorPos);
-        	Log.e("curpos", "txtLength:::::::::::::::::"+text.length());
-
 		}
 //    	if(getLineCount()>2){
 //    		scrollTo(0, (getLineCount()-2)* getLineHeight());
