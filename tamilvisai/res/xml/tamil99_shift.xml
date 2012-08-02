@@ -45,7 +45,7 @@
         <Key android:codes="2963" android:keyIcon="@drawable/tamil99_oo"/>
         <Key android:codes="2962" android:keyIcon="@drawable/tamil99_o"/>
         <Key android:codes="2997" android:keyIcon="@drawable/tamil99_va"/>
-        <Key android:codes="2969" android:keyIcon="@drawable/tamil99_nja"/>
+        <Key android:codes="2969" android:keyIcon="@drawable/tamil99_nga"/>
         <Key android:codes="2994" android:keyIcon="@drawable/tamil99_la1"/>
         <Key android:codes="2992" android:keyIcon="@drawable/tamil99_ra1"/>
         <Key android:codes="2996" android:keyIcon="@drawable/tamil99_za"/>        
