@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-	<string name="ime_name">TamilVisai</string>
+
+    <string name="ime_name">TamilVisai</string>
     <string name="app_name">TamilVisai</string>
-    
 
     <!-- Symbols that are commonly considered word separators in this language -->
     <string name="word_separators">\u0020.,;:!?\n()[]*&amp;@{}/&lt;&gt;_+=|&quot;</string>
-    
+
     <!-- Labels on soft keys -->
     <string name="label_go_key">Go</string>
     <string name="label_next_key">Next</string>
     <string name="label_send_key">Send</string>
     <string name="text_welcome">வணக்கம்! இது ஆண்ட்ராய்டு இயங்குதளத்திற்கான தமிழ் விசைப் பலகை.</string>
     <string name="text_Header">தமிழ்விசை</string>
-    
+    <string name="text_enable_visai">தமிழ்விசை செயல்படுத்த</string>
     <string name="thamizha_txt">தமிழா!</string>
-    
     <string name="keyboard_layout_menu_header">Settings</string>
-	<string name="T99">தமிழ்99</string>
-	<string name="phonetic">உச்சரிப்பு - தமிழ் விசைகள்</string>
-	<string name="phonetic_eng">உச்சரிப்பு - ஆங்கில விசைகள்</string>
-	<string name="eng">ஆங்கிலம்</string>
-	<string name="input_method">input method</string>
-	
+    <string name="T99">தமிழ்99</string>
+    <string name="phonetic">உச்சரிப்பு - தமிழ் விசைகள்</string>
+    <string name="phonetic_eng">உச்சரிப்பு - ஆங்கில விசைகள்</string>
+    <string name="eng">ஆங்கிலம்</string>
+    <string name="input_method">input method</string>
     <string name="thamizha_url">http://www.thamizha.com</string>
-    <string name="text_help_header">how to enable TamilVisai</string>
-    <string name="text_help_steps">
-    Android 2.1 and above : Goto Settings -&gt; Languages &amp; Keyboards and tick TamilVisai \nAndroid 1.6 : Goto Settings -&gt; Locale &amp; Text and tick TamilVisai\n\n
-	Long press in a text box and choose Input Method and then select TamilVisai.     
-    </string>
+    <string name="text_help_step_1"> * ஒரு டெக்ஸ்ட்பாக்ஸில்நீண்ட நேரம் அழுத்தவும்</string>
+    <string name="text_help_step_2"> * உள்ளீட்டு முறை தேர்வு செய்யுங்கள்</string>
+    <string name="text_help_step_3"> * TamilVisai தேர்ந்தெடுக்கவும்.</string>
+
 </resources>
